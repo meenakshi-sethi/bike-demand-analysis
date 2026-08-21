@@ -1,0 +1,13 @@
+# Course-only materials: instructor answer key, raw assignment brief, and the
+# submission-format Q&A PDF. Kept on disk locally for reference, not published.
+_course_materials/
+
+# Jupyter / Python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.DS_Store
+
+# MLflow (if/when added)
+mlruns/
+mlartifacts/
