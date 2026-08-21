@@ -98,7 +98,9 @@ notebooks/      bike_demand_regression.ipynb — full analysis, model build, eva
 ## Running it
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn statsmodels
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 jupyter notebook notebooks/bike_demand_regression.ipynb
 ```
 
