@@ -61,7 +61,9 @@
   .bar-fill.pos{background:var(--accent); left:50%;}
   .bar-fill.neg{background:var(--bad); right:50%;}
   .bar-row .val{text-align:right; font-weight:600; font-variant-numeric:tabular-nums;}
-  .eq{font-family:"SF Mono",Menlo,Consolas,monospace; font-size:12.5px; color:var(--muted); background:var(--accent-soft); border-radius:8px; padding:14px 16px; overflow-x:auto; margin-top:16px;}
+  .eq{font-family:"SF Mono",Menlo,Consolas,monospace; font-size:12.5px; color:var(--muted); background:var(--accent-soft); border-radius:8px; padding:14px 16px; overflow-x:auto; margin-top:10px;}
+  .tech{margin-top:16px;}
+  .tech summary{cursor:pointer; font-size:13px; color:var(--muted);}
   footer{border-top:1px solid var(--line); margin-top:44px; padding-top:20px; color:var(--muted); font-size:12.5px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
   a{color:var(--accent); text-decoration:none;}
   @media print{ body{background:#fff;} .wrap{padding:0 12px;} }
@@ -79,27 +81,29 @@
   </header>
 
   <div class="metrics">
-    <div class="metric"><div class="label">Train R²</div><div class="value">0.824</div></div>
-    <div class="metric"><div class="label">Test R²</div><div class="value">0.820</div></div>
-    <div class="metric"><div class="label">Adj. R² (test)</div><div class="value">0.812</div></div>
-    <div class="metric"><div class="label">Features used</div><div class="value">10</div></div>
+    <div class="metric"><div class="label">How accurate</div><div class="value">82%</div><div class="sub">of day-to-day demand explained</div></div>
+    <div class="metric"><div class="label">Reliability</div><div class="value">✓ Holds up</div><div class="sub">same accuracy on data it never saw</div></div>
+    <div class="metric"><div class="label">Basis</div><div class="value">2 years</div><div class="sub">730 days of rentals, weather &amp; calendar</div></div>
   </div>
 
   <section>
     <h2>What moves the needle</h2>
     <div class="chart">
-      <div class="bar-row"><div class="name">Temperature</div><div class="bar-track"><div class="bar-fill pos" style="width:28.2%"></div></div><div class="val">+0.564</div></div>
-      <div class="bar-row"><div class="name">Snow / rain</div><div class="bar-track"><div class="bar-fill neg" style="width:15.4%"></div></div><div class="val">−0.307</div></div>
-      <div class="bar-row"><div class="name">Year (2019 vs 2018)</div><div class="bar-track"><div class="bar-fill pos" style="width:11.6%"></div></div><div class="val">+0.231</div></div>
-      <div class="bar-row"><div class="name">Winter</div><div class="bar-track"><div class="bar-fill pos" style="width:6.5%"></div></div><div class="val">+0.129</div></div>
-      <div class="bar-row"><div class="name">September</div><div class="bar-track"><div class="bar-fill pos" style="width:4.8%"></div></div><div class="val">+0.095</div></div>
-      <div class="bar-row"><div class="name">Summer</div><div class="bar-track"><div class="bar-fill pos" style="width:4.2%"></div></div><div class="val">+0.083</div></div>
-      <div class="bar-row"><div class="name">Mist</div><div class="bar-track"><div class="bar-fill neg" style="width:3.8%"></div></div><div class="val">−0.075</div></div>
-      <div class="bar-row"><div class="name">Saturday</div><div class="bar-track"><div class="bar-fill pos" style="width:2.9%"></div></div><div class="val">+0.057</div></div>
-      <div class="bar-row"><div class="name">Working day</div><div class="bar-track"><div class="bar-fill pos" style="width:2.2%"></div></div><div class="val">+0.043</div></div>
-      <div class="bar-row"><div class="name">Windspeed</div><div class="bar-track"><div class="bar-fill neg" style="width:7.8%"></div></div><div class="val">−0.155</div></div>
-      <div class="eq">cnt ≈ 0.084 + 0.231·yr + 0.043·workingday + 0.564·temp − 0.155·windspeed + 0.083·season_summer + 0.129·season_winter + 0.095·mnth_sep + 0.057·weekday_sat − 0.075·weathersit_mist − 0.307·weathersit_snow_rain
-      <br>(all inputs scaled 0–1, so coefficients are directly comparable)</div>
+      <div class="bar-row"><div class="name">Temperature</div><div class="bar-track"><div class="bar-fill pos" style="width:28.2%"></div></div><div class="val">Biggest driver ↑</div></div>
+      <div class="bar-row"><div class="name">Snow / rain</div><div class="bar-track"><div class="bar-fill neg" style="width:15.4%"></div></div><div class="val">Biggest drag ↓</div></div>
+      <div class="bar-row"><div class="name">Year-over-year growth</div><div class="bar-track"><div class="bar-fill pos" style="width:11.6%"></div></div><div class="val">Strong boost ↑</div></div>
+      <div class="bar-row"><div class="name">Windy days</div><div class="bar-track"><div class="bar-fill neg" style="width:7.8%"></div></div><div class="val">Moderate drag ↓</div></div>
+      <div class="bar-row"><div class="name">Winter</div><div class="bar-track"><div class="bar-fill pos" style="width:6.5%"></div></div><div class="val">Boosts demand ↑</div></div>
+      <div class="bar-row"><div class="name">September</div><div class="bar-track"><div class="bar-fill pos" style="width:4.8%"></div></div><div class="val">Boosts demand ↑</div></div>
+      <div class="bar-row"><div class="name">Summer</div><div class="bar-track"><div class="bar-fill pos" style="width:4.2%"></div></div><div class="val">Boosts demand ↑</div></div>
+      <div class="bar-row"><div class="name">Misty days</div><div class="bar-track"><div class="bar-fill neg" style="width:3.8%"></div></div><div class="val">Slight drag ↓</div></div>
+      <div class="bar-row"><div class="name">Saturdays</div><div class="bar-track"><div class="bar-fill pos" style="width:2.9%"></div></div><div class="val">Slight boost ↑</div></div>
+      <div class="bar-row"><div class="name">Working days</div><div class="bar-track"><div class="bar-fill pos" style="width:2.2%"></div></div><div class="val">Slight boost ↑</div></div>
+      <details class="tech">
+        <summary>Show the underlying model (technical)</summary>
+        <div class="eq">cnt ≈ 0.084 + 0.231·yr + 0.043·workingday + 0.564·temp − 0.155·windspeed + 0.083·season_summer + 0.129·season_winter + 0.095·mnth_sep + 0.057·weekday_sat − 0.075·weathersit_mist − 0.307·weathersit_snow_rain
+        <br>(all inputs scaled 0–1, so coefficients are directly comparable)</div>
+      </details>
     </div>
   </section>
 
